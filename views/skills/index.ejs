@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <%= title %> </title>
-</head>
+
+<%- include('../partials/header')%>
+
 <body>
 
 <h3><%= title%> </h3>
    <% skills.forEach(function(skill) { %>
        <p> <%= skill.skill %> :
-       <%= skill.learned ? "learned" : "not yet learned" %> : <a href="/skills/<%=skill.id%>">update status</a> </p> 
+       <%= skill.learned ? "learned" : "not yet learned" %> : <a href="/skills/<%=skill.id%>">view skill</a> </p> 
        
         <%  });  %> 
 
-</body>
-</html>
+
+        <%- include('../partials/footer')%>
