@@ -7,7 +7,8 @@ const skills = [
 
   module.exports = {
     getAll,
-    getOne
+    getOne, 
+    create
   };
 
   function getAll() {
@@ -18,3 +19,14 @@ const skills = [
     id = Number(id)
     return skills.find(skill=>skill.id === id)
 };
+
+function create(data) {
+
+  const newSkill = {...data}
+
+  newSkill.learned = data.learned ? true : false
+  newSkill.id = Date.now() % 1000000;
+
+  skills.push(newSkill)
+
+}

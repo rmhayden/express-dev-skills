@@ -2,7 +2,9 @@ const Skills = require('../models/skills')
 
 module.exports = {
     index,
-    getOne: show
+    getOne: show,
+    new: newSkill,
+    create
 }
 
 function index(req, res) {
@@ -25,4 +27,11 @@ function show(req, res) {
     res.render('skills/show', contextObject)
 }
 
+function newSkill(req, res) {
+    res.render('skills/new', { title: 'New Skill' });
+}
 
+function create(req, res) {
+    Skills.create(req.body) // key step
+    res.redirect('/skills')
+}
