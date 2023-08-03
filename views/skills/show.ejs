@@ -6,10 +6,42 @@
 
     <p><%= skill.skill %> : <%= skill.learned ? "learned" : "not yet learned" %></p>
 
-    <div>
 
-        <a href="/skills">Back to Skills</a>
-    </div>
+<!-- 
+
+   <form action="/skills/<%= skill.id %>" method="POST" autocomplete="off">
+    <input type="checkbox" name="learned">
+    <button type="submit">Update Status</button>
+  </form> -->
+
+
+    <form action="/skills/<%= skill.id %>?_method=DELETE"
+        class="delete-form" method="POST">
+       <button type="submit">Delete Skill</button>
+   </form>
+
+
+
+<form action="/skills/<%=skill.id%>?_method=PUT" method="POST" autocomplete="off">
+
+    <input type="checkbox" name="learned" 
+    
+    <% if(skill.learned) {%>
+      checked
+      <% } %>
+    >
+
+    <button type="submit">Update Status</button>
+  
+  </form>
+
+
+
+   <div>
+
+    <a href="/skills">Back to Skills</a>
+
+</div>
 
 
 

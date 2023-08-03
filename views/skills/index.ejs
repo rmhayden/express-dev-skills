@@ -8,14 +8,15 @@
    <% skills.forEach(function(skill) { %>
 
        <p> <%= skill.skill %> :
-       <%= skill.learned ? "learned" : "not yet learned" %> : <a href="/skills/<%=skill.id%>">view skill</a> </p> 
+       <%= skill.learned ? "learned" : "not yet learned" %> : <a href="/skills/<%=skill.id%>">Update Status</a> </p> 
        
-
+<!-- 
        <form action="/skills/<%= skill.id %>?_method=DELETE"
          class="delete-form" method="POST">
         <button type="submit">X</button>
-    </form>
+    </form> -->
 
+    <!-- i prefer having the delete button within show.ejs -->
 
         <%  });  %> 
 

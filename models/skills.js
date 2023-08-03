@@ -9,7 +9,8 @@ const skills = [
     getAll,
     getOne, 
     create,
-    deleteOne
+    deleteOne,
+    makeLearned
   };
 
   function getAll() {
@@ -36,4 +37,22 @@ function deleteOne(id) {
   id = parseInt(id);
   const idx = skills.findIndex(skill=>skill.id === id);
   skills.splice(idx, 1);
+}
+
+
+function makeLearned(status, id) {
+
+  console.log("running makelearned")
+
+   console.log("here is the status: ", status)
+
+   id = Number(id)
+   let specificSkill = skills.find(skill=>skill.id === id)
+
+    console.log("this is the specific skill, returns the whole object!", specificSkill)
+
+    specificSkill.learned = status
+
+    console.log("final status:", status)
+
 }

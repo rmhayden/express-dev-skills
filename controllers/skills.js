@@ -5,7 +5,8 @@ module.exports = {
     getOne: show,
     new: newSkill,
     create,
-    delete: deleteSkill
+    delete: deleteSkill,
+    edit: makeLearned
 }
 
 function index(req, res) {
@@ -34,10 +35,31 @@ function newSkill(req, res) {
 
 function create(req, res) {
     Skills.create(req.body) // key step
-    res.redirect('/skills')
+    res.redirect('/skills');
 }
 
 function deleteSkill (req, res) {
     Skills.deleteOne(req.params.id);
     res.redirect('/skills');
+}
+
+
+function makeLearned(req, res) {
+    // Skills.getOne;
+
+    // const id = req.params.id
+
+    // res.send(Skills.getAll()) // test to see if we are finding the data)
+    // req.body.done;
+
+    console.log(Boolean(req.body.learned)) // this shows that as i update the checkbox, it stores the value
+    console.log(("and now", req.body.learned))
+    console.log(req.params.id)
+
+    // maybe we should export the status and the id:
+
+    Skills.makeLearned(req.body.learned, req.params.id) // now we have to update the actual skill info with models
+    
+    res.redirect('/skills');
+
 }
