@@ -2,27 +2,15 @@
 <%- include('../partials/header')%>
 
 <body>
-    <h3> <%= title %></h3>
+    <h3> <%= title %> <%= skill.skill %></h3>
 
-    <p><%= skill.skill %> : <%= skill.learned ? "learned" : "not yet learned" %></p>
+    <h4>Status: <%= skill.learned ? "learned" : "not yet learned" %></h4>
 
-
-<!-- 
-
-   <form action="/skills/<%= skill.id %>" method="POST" autocomplete="off">
-    <input type="checkbox" name="learned">
-    <button type="submit">Update Status</button>
-  </form> -->
-
-
-    <form action="/skills/<%= skill.id %>?_method=DELETE"
-        class="delete-form" method="POST">
-       <button type="submit">Delete Skill</button>
-   </form>
-
+    <h5>Check/Uncheck box below to update status</h5>
 
 
 <form action="/skills/<%=skill.id%>?_method=PUT" method="POST" autocomplete="off">
+
 
     <input type="checkbox" name="learned" 
     
@@ -31,15 +19,26 @@
       <% } %>
     >
 
-    <button type="submit">Update Status</button>
+    <button type="submit">Click to Update</button>
   
   </form>
+
+  <P>&nbsp; </P>
+
+  <form action="/skills/<%= skill.id %>?_method=DELETE"
+    class="delete-form" method="POST">
+   <button type="submit">Click to Delete Skill</button>
+</form>
+
+<P>&nbsp; </P>
 
 
 
    <div>
 
     <a href="/skills">Back to Skills</a>
+
+    <P>&nbsp; </P>
 
 </div>
 
